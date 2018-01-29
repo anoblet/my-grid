@@ -10,10 +10,13 @@
                 grid-row-gap: 3rem;
                 grid-column-gap: 3rem;
                 padding: 3rem;
+/*
+                grid-auto-rows: minmax(120px, auto);
+*/
             }
         </style>
         <template is="dom-repeat" items="[[items]]" as="item">
-            <my-grid-item item="[[item]]" full-row="[[item.fullRow]]" full-column="[[item.fullColumn]]">
+            <my-grid-item item="[[item]]" columns="[[item.columns]]" full-row="[[item.fullRow]]" full-column="[[item.fullColumn]]">
                 <custom-element element="[[item]]"></custom-element>
             </my-grid-item>
         </template>
@@ -43,7 +46,8 @@
             ready() {
                 super.ready();
                 this.style.gridTemplateRows = this.rows;
-                this.style.gridTemplateColumns = "repeat(auto-fill, minmax(240px, 1fr))";
+                // this.style.gridTemplateColumns = "repeat(auto-fill, minmax(240px, 1fr))";
+                this.style.gridTemplateColumns = "repeat(auto-fill, minmax(320px, 1fr))";
             }
         }
 

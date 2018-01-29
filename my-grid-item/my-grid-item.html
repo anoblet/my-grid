@@ -3,7 +3,19 @@
 <dom-module id="my-grid-item">
     <template>
         <style include="app-styles">
+            /*
             :host {
+                position: relative;
+                height: 0;
+                padding-top: 100%;
+            }
+            */
+            paper-card {
+                height: 100%;
+
+            }
+            .heading {
+                text-transform: uppercase;
             }
         </style>
         <paper-card>
@@ -63,9 +75,12 @@
 
             connectedCallback() {
                 super.connectedCallback();
-                if (this.col) {
-                    this.style.gridColumn = "span " + this.span;
+                /*if (this.rows) {
+                    this.style.gridRow = "span " + this.rows;
                 }
+                if (this.columns) {
+                    this.style.gridColumn = "span " + this.columns;
+                }*/
             }
         }
 
