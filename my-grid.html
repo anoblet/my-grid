@@ -10,15 +10,15 @@
                 grid-row-gap: 3rem;
                 grid-column-gap: 3rem;
                 padding: 3rem;
-/*
-                grid-auto-rows: minmax(120px, auto);
-*/
+                grid-template-columns: repeat(auto-fit, minmax(320px, 1fr))
             }
         </style>
-        <template is="dom-repeat" items="[[items]]" as="item">
-            <my-grid-item item="[[item]]" columns="[[item.columns]]" full-row="[[item.fullRow]]" full-column="[[item.fullColumn]]">
-                <custom-element element="[[item]]"></custom-element>
-            </my-grid-item>
+        <template is="dom-if" if="{{dynamic}}">
+            <template is="dom-repeat" items="[[items]]" as="item">
+                <my-grid-item item="[[item]]" columns="[[item.columns]]" full-row="[[item.fullRow]]" full-column="[[item.fullColumn]]">
+                    <custom-element element="[[item]]"></custom-element>
+                </my-grid-item>
+            </template>
         </template>
     </template>
     <script>
@@ -39,6 +39,9 @@
                     },
                     items: {
                         type: Object
+                    },
+                    dynamic: {
+                        type: Boolean
                     }
                 }
             }
