@@ -7,9 +7,8 @@
             :host {
                 display: grid;
                 grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
-                grid-row-gap: 3rem;
-                grid-column-gap: 3rem;
-                padding: 3rem;
+                grid-gap: 1rem;
+                margin: 1rem;
             }
         </style>
         <template is="dom-if" if="{{dynamic}}">
@@ -30,12 +29,10 @@
             static get properties() {
                 return {
                     rows: {
-                        type: Number,
-                        value: 1
+                        type: Number
                     },
                     columns: {
-                        type: Number,
-                        value: 1
+                        type: Number
                     },
                     items: {
                         type: Object
@@ -44,13 +41,6 @@
                         type: Boolean
                     }
                 }
-            }
-
-            ready() {
-                super.ready();
-                this.style.gridTemplateRows = this.rows;
-                // this.style.gridTemplateColumns = "repeat(auto-fill, minmax(240px, 1fr))";
-                this.style.gridTemplateColumns = "repeat(auto-fill, minmax(320px, 1fr))";
             }
         }
 
